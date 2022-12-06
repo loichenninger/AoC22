@@ -1,8 +1,13 @@
 package fr.n1g.aoc22.days;
 
+import com.google.common.collect.Lists;
 import fr.n1g.aoc22.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Day3 {
 
@@ -16,14 +21,14 @@ public class Day3 {
         System.out.println("Step 1");
         System.out.println("*************************************");
 
-        System.out.println("Sum of priorities : "+ getPrioritiesSum(lignes));
+        System.out.println("Sum of priorities : "+ sumPriorities(lignes));
 
 
         System.out.println("*************************************");
         System.out.println("Step 2");
         System.out.println("*************************************");
 
-        System.out.println("");
+        System.out.println("Sum of badges : "+ sumBadgesPriorities(lignes));
 
     }
 
@@ -52,7 +57,7 @@ public class Day3 {
         return res.toString().charAt(0);
     }
 
-    private static Integer getPrioritiesSum(List<String> input){
+    private static Integer sumPriorities(List<String> input){
         return input.stream().map(rucksack -> getCommonCharacter(rucksack)).map(commonChar->getPriority(commonChar)).reduce(0,Integer::sum);
     }
 
@@ -66,4 +71,31 @@ public class Day3 {
         }
         return Integer.valueOf(res);
     }
+
+    private static Integer sumBadgesPriorities(List<String> input){
+        List<List<String>> subSets = Lists.partition(input,3);
+        return subSets.stream().map(group->getBadgePriority(group)).reduce(0,Integer::sum);
+    }
+
+    private static Integer getBadgePriority(List<String> group){
+        StringBuilder commonsChar = new StringBuilder();
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < group.get(0).length(); i++) {
+            // Check for common char
+            if (group.get(1).contains(Character.toString(group.get(0).charAt(i)))) {
+                // If contains append it to resultant string
+                commonsChar.append(Character.toString(group.get(0).charAt(i)));
+            }
+        }
+        for (int i = 0; i < commonsChar.length(); i++) {
+            // Check for common char
+            if (group.get(2).contains(Character.toString(commonsChar.charAt(i)))) {
+                // If contains append it to resultant string
+                res.append(Character.toString(commonsChar.charAt(i)));
+            }
+        }
+        return getPriority(res.charAt(0));
+    }
+
+
 }
