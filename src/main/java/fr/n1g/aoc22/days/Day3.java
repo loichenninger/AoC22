@@ -3,12 +3,7 @@ package fr.n1g.aoc22.days;
 import com.google.common.collect.Lists;
 import fr.n1g.aoc22.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 public class Day3 {
 
     private static final List<String> lignes = Utils.getStringList("src/puzzle3.txt");
