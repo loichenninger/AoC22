@@ -19,37 +19,25 @@ public class Day6 {
         System.out.println("Step 1");
         System.out.println("*************************************");
 
-        System.out.println("First maker after character "+searchFirstMarker(input));
+        System.out.println("First maker after character "+searchMarker(input,4));
 
 
         System.out.println("*************************************");
         System.out.println("Step 2");
         System.out.println("*************************************");
 
-        System.out.println("First message marker after character : "+searchFirstMessage(input));
+        System.out.println("First message marker after character : "+searchMarker(input,14));
 
 
 
     }
 
-    private static Integer searchFirstMarker(String input){
-        Integer maxNumberOfChecks = input.length()-4+1;
+    private static Integer searchMarker(String input,Integer lengthMarker){
+        Integer maxNumberOfChecks = input.length()-lengthMarker+1;
         Integer res = 0;
         for (int i=0;i<maxNumberOfChecks;i++){
-            if (areAllUnique(input.substring(i,i+4))){
-                res=i+4;
-                break;
-            }
-        }
-        return res;
-    }
-
-    private static Integer searchFirstMessage(String input){
-        Integer maxNumberOfChecks = input.length()-14+1;
-        Integer res = 0;
-        for (int i=0;i<maxNumberOfChecks;i++){
-            if (areAllUnique(input.substring(i,i+14))){
-                res=i+14;
+            if (areAllUnique(input.substring(i,i+lengthMarker))){
+                res=i+lengthMarker;
                 break;
             }
         }
