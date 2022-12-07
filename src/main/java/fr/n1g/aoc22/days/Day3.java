@@ -6,7 +6,7 @@ import fr.n1g.aoc22.utils.Utils;
 import java.util.List;
 public class Day3 {
 
-    private static final List<String> lignes = Utils.getStringList("src/puzzle3.txt");
+    private static final List<String> lignes = Utils.getStringList("src/main/resources/puzzles/puzzle3.txt");
 
     public static void main(String[] args) {
 

@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 
 public class Day4 {
 
-    private static final List<String> lignes = Utils.getStringList("src/puzzle4.txt");
+    private static final List<String> lignes = Utils.getStringList("src/main/resources/puzzles/puzzle4.txt");
 
     public static void main(String[] args) {
 

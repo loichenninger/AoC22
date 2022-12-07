@@ -13,7 +13,7 @@ import static java.util.Collections.emptyList;
 
 public class Day1 {
 
-    private static final List<String> lignes = Utils.getStringList("src/puzzle1.txt");
+    private static final List<String> lignes = Utils.getStringList("src/main/resources/puzzles/puzzle1.txt");
 
     public static void main(String[] args) {
 

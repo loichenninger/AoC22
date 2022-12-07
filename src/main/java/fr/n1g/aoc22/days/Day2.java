@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Day2 {
 
-    private static final List<String> lignes = Utils.getStringList("src/puzzle2.txt");
+    private static final List<String> lignes = Utils.getStringList("src/main/resources/puzzles/puzzle2.txt");
 
     public static void main(String[] args) {
 
