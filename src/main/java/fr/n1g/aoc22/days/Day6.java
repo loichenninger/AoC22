@@ -26,7 +26,7 @@ public class Day6 {
         System.out.println("Step 2");
         System.out.println("*************************************");
 
-        System.out.println("");
+        System.out.println("First message marker after character : "+searchFirstMessage(input));
 
 
 
@@ -38,6 +38,18 @@ public class Day6 {
         for (int i=0;i<maxNumberOfChecks;i++){
             if (areAllUnique(input.substring(i,i+4))){
                 res=i+4;
+                break;
+            }
+        }
+        return res;
+    }
+
+    private static Integer searchFirstMessage(String input){
+        Integer maxNumberOfChecks = input.length()-14+1;
+        Integer res = 0;
+        for (int i=0;i<maxNumberOfChecks;i++){
+            if (areAllUnique(input.substring(i,i+14))){
+                res=i+14;
                 break;
             }
         }
